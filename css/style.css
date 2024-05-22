@@ -1,0 +1,25 @@
+body {
+  background-color: rgb(248, 249, 250);
+
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+  padding-top: 8px;
+  margin-top: 8px;
+}
