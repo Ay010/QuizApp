@@ -72,6 +72,70 @@ let questions = [
     answer_4: "Hangrutschung",
     right_answer: 4,
   },
+  {
+    question: "Welches ist das längste Tier der Welt?",
+    answer_1: "Blauwal",
+    answer_2: "Riesenkalmar",
+    answer_3: "Giraffe",
+    answer_4: "Anakonda",
+    right_answer: 2,
+  },
 ];
 
-function init() {}
+let currentQuestion = 0;
+
+// render card
+
+function renderCard() {
+  let question = questions[currentQuestion];
+
+  // render question
+  document.getElementById("question-text").innerHTML = question["question"];
+
+  // render answers
+  document.getElementById("answer1").innerHTML = question["answer_1"];
+  document.getElementById("answer2").innerHTML = question["answer_2"];
+  document.getElementById("answer3").innerHTML = question["answer_3"];
+  document.getElementById("answer4").innerHTML = question["answer_4"];
+
+  // render all questions text
+  document.getElementById("all-questions").innerHTML = questions.length;
+
+  // current question
+  document.getElementById("current-question").innerHTML = currentQuestion + 1;
+}
+
+// answer
+
+function answer(answerNumber) {
+  let answerID = document.getElementById("answer" + answerNumber);
+  let rightAnswerID = document.getElementById(
+    "answer" + questions[currentQuestion]["right_answer"]
+  );
+
+  if (answerNumber === questions[currentQuestion]["right_answer"]) {
+    answerID.parentNode.classList.add("text-bg-success");
+  } else {
+    answerID.parentNode.classList.add("text-bg-danger");
+    rightAnswerID.parentNode.classList.add("text-bg-success");
+  }
+  document.getElementById("next-button").disabled = false;
+}
+
+// next question
+
+function nextQuestion() {
+  let quizAnswerCards = document.getElementsByClassName("quiz-answer-card");
+
+  for (let i = 0; i < quizAnswerCards.length; i++) {
+    let quizAnswerCard = quizAnswerCards[i];
+
+    quizAnswerCard.parentNode.classList.remove("text-bg-success");
+    quizAnswerCard.parentNode.classList.remove("text-bg-danger");
+  }
+
+  document.getElementById("next-button").disabled = true;
+
+  currentQuestion++;
+  renderCard();
+}
