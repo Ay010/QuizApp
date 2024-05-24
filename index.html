@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="source/Quizapp Dark/Quizapp/logo.png" />
     <title>QuizApp</title>
 
     <!-- bootstrap -->
@@ -35,9 +37,19 @@
 
     <main>
       <!-- card -->
-      <div class="card p-3" style="width: 30rem">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
+
+      <div id="quiz-card" class="card p-3" style="width: 30rem">
         <div class="card-body">
+          <div
+            class="progress mb-3"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div id="progress-bar" class="progress-bar" style="width: 0%">0%</div>
+          </div>
           <h5 class="card-title" id="question-text">Frage</h5>
         </div>
 
@@ -59,6 +71,37 @@
 
           <button class="btn btn-primary" id="next-button" disabled onclick="nextQuestion()">
             Nächste Frage
+          </button>
+        </div>
+      </div>
+
+      <!-- quiz end screen -->
+      <div id="endscreen" class="card p-3" style="width: 30rem; display: none">
+        <div id="endscreen-header" class="card-body">
+          <img id="end-img" src="source/img/finish.png" class="card-img-top" alt="..." />
+
+          <!-- <h2 class="card-title">Quiz beendet!</h2> -->
+        </div>
+
+        <div
+          class="progress"
+          role="progressbar"
+          aria-label="Example with label"
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div class="progress-bar" style="width: 100%">100%</div>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">
+            Du hast <b id="right-answers"></b> von <b id="all-questions-endscreen"></b> Fragen
+            richtig beantwortet!
+          </h5>
+
+          <button class="btn btn-primary mt-3" id="reset-quiz-button" onclick="resetQuiz()">
+            Erneut spielen
           </button>
         </div>
       </div>

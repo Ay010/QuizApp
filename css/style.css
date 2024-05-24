@@ -29,3 +29,35 @@ main {
 
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+#end-img {
+  height: 250px;
+  object-fit: contain;
+
+  /* margin-bottom: 20px; */
+}
+
+#endscreen {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  main {
+    height: calc(100% - 50px);
+    width: 100%;
+  }
+
+  #quiz-card,
+  #endscreen {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .card-body {
+    flex: unset;
+  }
+}
